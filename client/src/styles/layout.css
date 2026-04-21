@@ -1,0 +1,30 @@
+.page-section {
+  padding: 40px;
+}
+
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .responsive-grid.four-columns {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .responsive-grid.three-columns {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .responsive-grid.two-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
