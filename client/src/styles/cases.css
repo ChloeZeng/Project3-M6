@@ -1,0 +1,51 @@
+.cases-section {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.cases-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.case-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.case-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+}
+
+.case-content {
+  padding: 16px;
+  text-align: left;
+}
+
+.case-subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+.case-category {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.case-desc {
+  font-size: 14px;
+  color: #777;
+}

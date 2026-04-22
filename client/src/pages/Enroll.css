@@ -1,0 +1,173 @@
+.enroll-page {
+  padding: 48px 24px 72px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.enroll-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.enroll-course-card {
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.enroll-course-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.enroll-course-content {
+  padding: 24px;
+}
+
+.enroll-course-badge {
+  display: inline-block;
+  background: #eefbfb;
+  color: #2bbec3;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.enroll-course-title {
+  margin: 0 0 12px;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #1f1f1f;
+}
+
+.enroll-course-subtitle {
+  margin: 0 0 18px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.enroll-course-price {
+  margin: 0;
+  color: #f28c28;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.enroll-form-panel {
+  background: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.enroll-form-title {
+  margin: 0 0 10px;
+  font-size: 32px;
+  color: #1f1f1f;
+}
+
+.enroll-form-subtitle {
+  margin: 0 0 24px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.enroll-form-group {
+  margin-bottom: 18px;
+}
+
+.enroll-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  color: #333;
+}
+
+.enroll-form-input,
+.enroll-form-textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 12px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.enroll-form-input:focus,
+.enroll-form-textarea:focus {
+  border-color: #2bbec3;
+}
+
+.enroll-form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.enroll-error {
+  color: #d93025;
+  margin: 4px 0 16px;
+  font-weight: 600;
+}
+
+.enroll-submit-button {
+  width: 100%;
+  background: #2bbec3;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(43, 190, 195, 0.24);
+}
+
+.enroll-submit-button:hover {
+  background: #23aeb3;
+}
+
+.enroll-loading {
+  padding: 40px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .enroll-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .enroll-page {
+    padding: 28px 16px 56px;
+  }
+
+  .enroll-form-panel,
+  .enroll-course-content {
+    padding: 20px 18px;
+  }
+
+  .enroll-form-title {
+    font-size: 28px;
+  }
+
+  .enroll-course-title {
+    font-size: 24px;
+  }
+
+  .enroll-course-image {
+    height: 220px;
+  }
+}

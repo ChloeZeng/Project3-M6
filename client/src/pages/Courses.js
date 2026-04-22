@@ -19,16 +19,13 @@ function Courses() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>Courses Page</h1>
+      <h1>List Courses</h1>
 
       <div className="responsive-grid two-columns">
         {courses.map((course) => (
           <CourseCard
             key={course._id}
-            id={course._id}
-            title={course.title}
-            instructor={course.instructor}
-            category={course.category}
+            course={course}
           />
         ))}
       </div>

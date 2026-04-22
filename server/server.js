@@ -50,26 +50,38 @@ app.get("/api/seed", async (req, res) => {
     await Course.deleteMany();
 
     const sampleCourses = [
-      {
-        title: "AI Bootcamp for Beginners",
-        instructor: "Emily Chen",
-        category: "Beginner",
-      },
-      {
-        title: "Prompt Engineering Essentials",
-        instructor: "David Lee",
-        category: "Intermediate",
-      },
-      {
-        title: "AI Product Design Basics",
-        instructor: "Sophia Wang",
-        category: "Design",
-      },
-      {
-        title: "Applied AI for Career Growth",
-        instructor: "Michael Zhang",
-        category: "Career",
-      },
+    {
+        title: "7-Day AI Fast-Track Bootcamp",
+        subtitle:
+        "No coding experience needed. If you can message on WeChat, you can build your own app.",
+        content: [
+        "Creative AI thinking",
+        "Prompt toolkit",
+        "Cloud AI workflow",
+        "Visual content creation",
+        "Step-by-step support",
+        ],
+        audience:
+        "Beginners who want to use AI to solve daily-life problems and explore easy ways to start earning.",
+        price: 499,
+        image: "/images/course1.png",
+    },
+    {
+        title: "14-Day Advanced AI Bootcamp",
+        subtitle:
+        "Break out of competition and build your own AI-powered personal system.",
+        content: [
+        "Product positioning",
+        "Advanced AI capabilities",
+        "Identity building",
+        "Performance testing",
+        "Personal branding",
+        ],
+        audience:
+        "Professionals who want career transition, stronger personal branding, and real AI application skills.",
+        price: 1699,
+        image: "/images/course2.png",
+    },
     ];
 
     await Course.insertMany(sampleCourses);
