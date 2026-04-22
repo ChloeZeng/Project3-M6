@@ -216,9 +216,6 @@ function handleContactSubmit(e) {
               <img src={item.image} alt={item.title} className="case-image" />
 
               <div className="case-content">
-                <h3>{item.title}</h3>
-                <p className="case-subtitle">{item.subtitle}</p>
-
                 <p className="case-category">{item.category}</p>
                 <p className="case-desc">{item.description}</p>
               </div>
