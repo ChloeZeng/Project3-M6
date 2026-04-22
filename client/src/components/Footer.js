@@ -1,25 +1,33 @@
+import "./Footer.css";
+import logo from "../assets/logo.png";
+
+
 function Footer() {
   return (
-    <footer
-      style={{
-        background: "#333",
-        color: "white",
-        padding: "20px",
-        marginTop: "40px",
-        textAlign: "center",
-      }}
-    >
-      <p>Platform Logo</p>
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-left">
+          <img src={logo} alt="NieNieLab logo" className="footer-logo" />
 
-      <div style={{ margin: "10px 0" }}>
-        <span style={{ marginRight: "15px" }}>About</span>
-        <span style={{ marginRight: "15px" }}>Contact</span>
-        <span>Terms</span>
+          <div className="footer-social-row">
+            <span className="footer-social-label">Social media</span>
+
+            <div className="footer-social-links">
+              <a href="/" className="footer-social-link" aria-label="Reddit">
+                Reddit
+              </a>
+              <a href="/" className="footer-social-link" aria-label="Facebook">
+                Facebook
+              </a>
+            </div>
+          </div>
+
+          <p className="footer-copyright">
+            Copyright 2026 © NienieLab, All Rights Reserved
+          </p>
+        </div>
       </div>
 
-      <p style={{ fontSize: "12px" }}>
-        CompanyName © 202X. All rights reserved.
-      </p>
     </footer>
   );
 }

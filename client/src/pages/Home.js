@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import heroBg from "../assets/hero-bg.png";
 import cases from "../data/cases";
 import "../styles/cases.css";
+import "../styles/contact.css";
 
 
 function Home() {
@@ -193,7 +194,7 @@ function handleContactSubmit(e) {
         </section>
 
       {/* Courses Section */}
-      <section style={{ padding: "40px" }}>
+      <section style={{ padding: "16px" }}>
         <h2 style={{ textAlign: "center" }}>List Courses</h2>
 
         <div className="responsive-grid two-columns">
@@ -225,29 +226,49 @@ function handleContactSubmit(e) {
       </section>
 
       {/* Contact Section */}
-      <section style={{ padding: "40px" }}>
-        <h2 style={{ textAlign: "center" }}>Contact Us</h2>
+      <section className="contact-section">
+        <h2 className="contact-title">Contact Us</h2>
+        <p className="contact-subtitle">
+          Have questions about our bootcamps or case studies? Send us a message and
+          we will get back to you soon.
+        </p>
 
-        <form style={{ maxWidth: "400px", margin: "auto" }} onSubmit={handleContactSubmit}>
-          <input
-            placeholder="Name"
-            style={{ width: "100%", marginBottom: "10px" }}
-            value={contactName}
-            onChange={(e) => setContactName(e.target.value)}
-          />
-          <input
-            placeholder="Email"
-            style={{ width: "100%", marginBottom: "10px" }}
-            value={contactEmail}
-            onChange={(e) => setContactEmail(e.target.value)}
-          />
-          <textarea
-            placeholder="Message"
-            style={{ width: "100%", marginBottom: "10px" }}
-            value={contactMessage}
-            onChange={(e) => setContactMessage(e.target.value)}
-          />
-          <button type="submit">Send Message</button>
+        <form className="contact-form" onSubmit={handleContactSubmit}>
+          <div className="contact-form-group">
+            <label className="contact-form-label">Name</label>
+            <input
+              type="text"
+              className="contact-form-input"
+              placeholder="Enter your name"
+              value={contactName}
+              onChange={(e) => setContactName(e.target.value)}
+            />
+          </div>
+
+          <div className="contact-form-group">
+            <label className="contact-form-label">Email</label>
+            <input
+              type="email"
+              className="contact-form-input"
+              placeholder="Enter your email"
+              value={contactEmail}
+              onChange={(e) => setContactEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="contact-form-group">
+            <label className="contact-form-label">Message</label>
+            <textarea
+              className="contact-form-textarea"
+              placeholder="Write your message here"
+              value={contactMessage}
+              onChange={(e) => setContactMessage(e.target.value)}
+            />
+          </div>
+
+          <button type="submit" className="contact-form-button">
+            Send Message
+          </button>
         </form>
       </section>
     </div>
