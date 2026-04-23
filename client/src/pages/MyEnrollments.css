@@ -1,3 +1,9 @@
+.my-enrollments-section {
+  margin-top: 12px;
+}
+.my-enrollments-section .my-enrollments-header {
+  margin-bottom: 24px;
+}
 .my-enrollments-page {
   padding: 48px 24px 72px;
   max-width: 1200px;

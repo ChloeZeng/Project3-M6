@@ -211,18 +211,32 @@ function handleContactSubmit(e) {
       <section id="cases" className="cases-section">
         <h2 className="cases-title">Cases</h2>
 
-        <div className="cases-grid">
-          {cases.map((item) => (
-            <div key={item.id} className="case-card">
-              <img src={item.image} alt={item.title} className="case-image" />
+          <div className="cases-grid">
+            {cases.map((item) => (
+              <Link
+                key={item.id}
+                to={`/cases/${item.id}`}
+                className="case-card"
+                style={{ textDecoration: "none" }}
+              >
+                <img src={item.image} alt={item.title} className="case-image" />
 
-              <div className="case-content">
-                <p className="case-category">{item.category}</p>
-                <p className="case-desc">{item.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+                <div className="case-content">
+                  <p className="case-category">{item.category}</p>
+                  <h3
+                    style={{
+                      margin: "0 0 8px",
+                      color: "#1f1f1f",
+                      fontSize: "22px",
+                    }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="case-desc">{item.description}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
       </section>
 
       {/* Contact Section */}

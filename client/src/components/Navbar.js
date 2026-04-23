@@ -147,17 +147,6 @@ function Navbar(props) {
                     Profile
                   </Link>
 
-                  <Link
-                    to="/my-enrollments"
-                    style={{
-                      textDecoration: "none",
-                      color: "#333",
-                      fontWeight: "600",
-                    }}
-                  >
-                    My Enrollments
-                  </Link>
-
                   <button
                     onClick={onLogout}
                     style={{
@@ -271,20 +260,6 @@ function Navbar(props) {
                   }}
                 >
                   Profile
-                </Link>
-
-                <Link
-                  to="/my-enrollments"
-                  onClick={handleMenuClose}
-                  style={{
-                    textDecoration: "none",
-                    color: "#333",
-                    fontWeight: "600",
-                    padding: "10px 12px",
-                    borderRadius: "8px",
-                  }}
-                >
-                  My Enrollments
                 </Link>
 
                 <button

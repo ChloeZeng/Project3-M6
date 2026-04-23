@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./MyEnrollments.css";
 
-function MyEnrollments() {
+function MyEnrollments({ embedded = false }) {
   const [enrollments, setEnrollments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [courses, setCourses] = useState([]);
@@ -23,19 +23,23 @@ function MyEnrollments() {
   }, []);
 
   function getCourseTitle(courseId) {
-  const course = courses.find((c) => c._id === courseId);
-  return course ? course.title : "Unknown Course";
-}
-
+    const course = courses.find((c) => c._id === courseId);
+    return course ? course.title : "Unknown Course";
+  }
 
   if (loading) {
     return <h2 className="my-enrollments-loading">Loading...</h2>;
   }
 
   return (
-    <div className="my-enrollments-page">
+    <div
+      id="enrollments"
+      className={embedded ? "my-enrollments-section" : "my-enrollments-page"}
+    >
       <div className="my-enrollments-header">
-        <h1 className="my-enrollments-title">My Enrollments</h1>
+        <h2 className="my-enrollments-title">
+          {embedded ? "My Enrollments" : "My Enrollments"}
+        </h2>
         <p className="my-enrollments-subtitle">
           Review the courses you have joined and the goals you submitted.
         </p>

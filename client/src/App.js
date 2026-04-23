@@ -8,16 +8,15 @@ import Courses from "./pages/Courses";
 import CourseDetail from "./pages/CourseDetail";
 import Enroll from "./pages/Enroll";
 import Profile from "./pages/Profile";
+import CaseDetail from "./pages/CaseDetail";
 import Footer from "./components/Footer";
-import MyEnrollments from "./pages/MyEnrollments";
 import Navbar from "./components/Navbar";
-
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [enrollments, setEnrollments] = useState([]);
-  
+
   function handleLogin(userData) {
     setCurrentUser(userData);
   }
@@ -27,8 +26,8 @@ function App() {
   }
 
   function handleAddEnrollment(data) {
-  setEnrollments([...enrollments, data]);
-}
+    setEnrollments([...enrollments, data]);
+  }
 
   return (
     <div>
@@ -40,6 +39,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/courses/:id" element={<CourseDetail />} />
+        <Route path="/cases/:id" element={<CaseDetail />} />
         <Route
           path="/enroll/:id"
           element={<Enroll onEnroll={handleAddEnrollment} />}
@@ -54,20 +54,9 @@ function App() {
             )
           }
         />
-
-        <Route
-          path="/my-enrollments"
-          element={
-            currentUser ? (
-              <MyEnrollments />
-            ) : (
-              <Navigate to="/login" />
-            )
-          }
-        />
       </Routes>
 
-       <Footer />
+      <Footer />
     </div>
   );
 }
