@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerCompass Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            background: #fff;
+        }
+        .left-panel {
+            width: 50%;
+            background: #3a3a4a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+        .character {
+            position: absolute;
+            border-radius: 1rem 1rem 0 0;
+            transition: transform 0.2s ease;
+        }
+        .char-orange {
+            width: 180px;
+            height: 120px;
+            background: #ff7a45;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 1;
+        }
+        .char-purple {
+            width: 140px;
+            height: 180px;
+            background: #7a45ff;
+            bottom: 2rem;
+            left: 8rem;
+            z-index: 2;
+        }
+        .char-black {
+            width: 100px;
+            height: 160px;
+            background: #1a1a2a;
+            bottom: 2rem;
+            left: 16rem;
+            z-index: 3;
+        }
+        .char-yellow {
+            width: 120px;
+            height: 140px;
+            background: #ffd745;
+            bottom: 2rem;
+            left: 22rem;
+            z-index: 4;
+        }
+        .eye {
+            width: 16px;
+            height: 16px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .eye::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: black;
+            border-radius: 50%;
+            transition: transform 0.1s ease;
+        }
+        .char-orange .eye:nth-child(1) { left: 30%; }
+        .char-orange .eye:nth-child(2) { left: 60%; }
+        .char-purple .eye:nth-child(1) { left: 25%; }
+        .char-purple .eye:nth-child(2) { left: 65%; }
+        .char-black .eye:nth-child(1) { left: 20%; }
+        .char-black .eye:nth-child(2) { left: 70%; }
+        .char-yellow .eye:nth-child(1) { left: 25%; }
+        .char-yellow .eye:nth-child(2) { left: 65%; }
+        .char-yellow .mouth {
+            width: 30px;
+            height: 4px;
+            background: #333;
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .right-panel {
+            width: 50%;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 4rem;
+            color: #fff;
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+        .logo-dot {
+            width: 16px;
+            height: 16px;
+            background: #000;
+            border-radius: 50%;
+        }
+        .logo-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a2a;
+        }
+        .subtext {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 0.3rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            background: #fff;
+        }
+        input:focus {
+            outline: none;
+            border-color: #7a45ff;
+        }
+        .password-wrapper {
+            position: relative;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+        }
+        .form-options a {
+            color: #555;
+            text-decoration: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+        }
+        .btn-login {
+            background: #1a1a2a;
+            color: #fff;
+        }
+        .btn-google {
+            background: #fff;
+            color: #1a1a2a;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .signup-link {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .signup-link a {
+            color: #7a45ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links {
+            position: absolute;
+            bottom: 1rem;
+            left: 2rem;
+            font-size: 0.7rem;
+            color: #888;
+        }
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="left-panel">
+        <div class="logo">
+            <div class="logo-dot"></div>
+            <div class="logo-text">CareerCompass</div>
+        </div>
+        <div class="character char-orange">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="character char-purple">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="character char-black">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+        <div class="character char-yellow">
+            <div class="eye"></div>
+            <div class="eye"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="footer-links">
+            <a href=" ">Privacy Policy</a >
+            <a href="#">Terms of Service</a >
+        </div>
+    </div>
+    <div class="right-panel">
+        <h1>Welcome back!</h1>
+        <p class="subtext">Please enter your details</p >
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" id="email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <div class="password-wrapper">
+                <input type="password" placeholder="••••••••" id="password">
+                <span class="password-toggle" id="togglePassword">👁️</span>
+            </div>
+        </div>
+        <div class="form-options">
+            <label style="display: flex; align-items: center; gap: 0.3rem;">
+                <input type="checkbox" style="width: auto;"> Remember for 30 days
+            </label>
+            <a href="#">Forgot password?</a >
+        </div>
+        <button class="btn btn-login">Log in</button>
+        <button class="btn btn-google">
+            <span>G</span> Log in with Google
+        </button>
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign Up</a >
+        </div>
+    </div>
+
+    <script>
+        // 眼睛跟随鼠标移动
+        document.addEventListener('mousemove', (e) => {
+            const eyes = document.querySelectorAll('.eye::after');
+            const rect = document.querySelector('.left-panel').getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+
+            document.querySelectorAll('.eye').forEach(eye => {
+                const pupil = eye.querySelector('::after') || eye;
+                pupil.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+            });
+        });
+
+        // 密码框聚焦时，黄色小人转头回避
+        const passwordInput = document.getElementById('password');
+        const yellowChar = document.querySelector('.char-yellow');
+
+        passwordInput.addEventListener('focus', () => {
+            yellowChar.style.transform = 'rotateY(180deg)';
+        });
+
+        passwordInput.addEventListener('blur', () => {
+            yellowChar.style.transform = 'rotateY(0deg)';
+        });
+
+        // 密码显示/隐藏切换
+        const togglePassword = document.getElementById('togglePassword');
+        togglePassword.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+</html>

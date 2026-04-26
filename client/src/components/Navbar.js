@@ -118,7 +118,25 @@ function Navbar(props) {
                 gap: "14px",
               }}
             >
-              {!currentUser ? (
+            {!currentUser ? (
+              <>
+                <Link
+                  to="/signup"
+                  style={{
+                    textDecoration: "none",
+                    color: "#333",
+                    fontWeight: "600",
+                    padding: "10px 18px",
+                    border: "1px solid #d9d9d9",
+                    borderRadius: "4px",
+                    display: "inline-block",
+                    whiteSpace: "nowrap",
+                    background: "white",
+                  }}
+                >
+                  Sign Up
+                </Link>
+
                 <Link
                   to="/login"
                   style={{
@@ -134,7 +152,8 @@ function Navbar(props) {
                 >
                   Log In
                 </Link>
-              ) : (
+              </>
+            ) : (
                 <>
                   <Link
                     to="/profile"
@@ -231,21 +250,40 @@ function Navbar(props) {
             </a>
 
             {!currentUser ? (
-              <Link
-                to="/login"
-                onClick={handleMenuClose}
-                style={{
-                  textDecoration: "none",
-                  background: "#28c7cd",
-                  color: "white",
-                  padding: "10px 12px",
-                  borderRadius: "8px",
-                  fontWeight: "600",
-                  textAlign: "center",
-                }}
-              >
-                Log In
-              </Link>
+              <>
+                <Link
+                  to="/signup"
+                  onClick={handleMenuClose}
+                  style={{
+                    textDecoration: "none",
+                    color: "#333",
+                    fontWeight: "600",
+                    padding: "10px 12px",
+                    borderRadius: "8px",
+                    border: "1px solid #d9d9d9",
+                    textAlign: "center",
+                    background: "white",
+                  }}
+                >
+                  Sign Up
+                </Link>
+
+                <Link
+                  to="/login"
+                  onClick={handleMenuClose}
+                  style={{
+                    textDecoration: "none",
+                    background: "#28c7cd",
+                    color: "white",
+                    padding: "10px 12px",
+                    borderRadius: "8px",
+                    fontWeight: "600",
+                    textAlign: "center",
+                  }}
+                >
+                  Log In
+                </Link>
+              </>
             ) : (
               <>
                 <Link
